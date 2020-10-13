@@ -38,7 +38,7 @@ SSL Certificates that match the domain name according to crt.sh.
 Returns the name (CN) of the certificate issuer.
 
 ## Custom Entities
-Add custom entites to Maltego [like this.](https://docs.maltego.com/support/solutions/articles/15000010462-create-new-entity#additional-properties-0-3)
+Add custom entities to Maltego [like this.](https://docs.maltego.com/support/solutions/articles/15000010462-create-new-entity#additional-properties-0-3)
 
 ### alexporras.Certificate
 Describes an SSL Certificate as a node in Maltego.
