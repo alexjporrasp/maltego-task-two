@@ -1,6 +1,5 @@
 from maltego_trx import entities
 from maltego_trx import transform
-import re
 
 
 class CertificateToIssuerName(transform.DiscoverableTransform):
