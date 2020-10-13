@@ -34,7 +34,7 @@ source ../env/bin/activate
 ### DomainToCertificates
 SSL Certificates that match the domain name according to crt.sh.
 
-### CertificatesToIssuerName
+### CertificateToIssuerName
 Returns the name (CN) of the certificate issuer.
 
 ## Custom Entities
