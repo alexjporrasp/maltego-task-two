@@ -17,4 +17,9 @@ def fetch_certificates_from_domain(domain_name: str) -> dict:
         raise ConnectionError(
             'Status code: {}'.format(http_response.status_code)
         )
+    content_type = http_response.headers.get('Content-Type')
+    if not content_type == 'application/json':
+        raise ValueError(
+            'Expected JSON body. Received: {}'.format(content_type)
+        )
     return json.loads(http_response.text)
