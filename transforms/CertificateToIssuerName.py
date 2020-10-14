@@ -1,5 +1,6 @@
 from maltego_trx import entities
 from maltego_trx import transform
+import re
 
 
 class CertificateToIssuerName(transform.DiscoverableTransform):
@@ -9,4 +10,17 @@ class CertificateToIssuerName(transform.DiscoverableTransform):
 
     @classmethod
     def create_entities(cls, request, response):
-        response.addEntity(entities.Phrase, request.getProperty('issuer_name'))
+        issuer_dn = request.getProperty('issuer_dn')
+        match = re.match('.*CN=(.*)', issuer_dn)
+        main_value = issuer_dn if not match else match.group(1)
+        entity = response.addEntity(entities.Phrase, main_value)
+        entity.addProperty(
+            fieldName='issuer_dn',
+            displayName='Issuer DN',
+            value=issuer_dn
+        )
+        entity.addProperty(
+            fieldName='subject_cn',
+            displayName='Subject CN',
+            value=request.getProperty('subject_name')
+        )
