@@ -1,10 +1,13 @@
 import requests
 import json
+import configparser
 
+config = configparser.ConfigParser()
+config.read('prod.conf')
 
-def fetch_certificates_from_domain(domain_name):
+def fetch_certificates_from_domain(domain_name: str) -> dict:
     http_response = requests.get(
-        'https://crt.sh/',
+        config.get('crt', 'endpoint_url'),
         params = {
             'CN': domain_name,
             'output': 'json'
