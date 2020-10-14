@@ -2,10 +2,11 @@ import requests
 import json
 import configparser
 
-config = configparser.ConfigParser()
-config.read('prod.conf')
 
 def fetch_certificates_from_domain(domain_name: str) -> dict:
+    config = configparser.ConfigParser()
+    config.read('prod.conf')
+
     http_response = requests.get(
         config.get('crt', 'endpoint_url'),
         params = {
