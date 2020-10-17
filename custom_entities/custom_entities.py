@@ -14,6 +14,7 @@ class Certificate(maltego.MaltegoEntity):
         self.addProperty(
             fieldName='certificate_id',
             displayName='Certificate ID',
+            matchingRule='strict',
             value=certificate.get('id', '')
         )
         self.addProperty(
