@@ -1,7 +1,7 @@
 from api_calls import crt
 from custom_entities import custom_entities
 from maltego_trx import transform
-import re
+
 
 class DomainToCertificates(transform.DiscoverableTransform):
     """
