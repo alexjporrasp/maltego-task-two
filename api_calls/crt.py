@@ -3,7 +3,7 @@ import json
 import config
 
 
-def fetch_certificates_from_domain(domain_name: str) -> dict:
+def fetch_certificates_from_domain(domain_name: str) -> list:
     http_response = requests.get(
         config.crt_endpoint_url(),
         params = {
